@@ -36,10 +36,13 @@ int main(int argc, char* argv[]) {
     double wallTime2 = omp_get_wtime();
 
     int max = 0;
-    #pragma omp parallel for reduction(max: max)
-    for (int r = 0; r < n; r++) {
-        if (max < array[r]) {
-            max = array[r];
+    #pragma omp parallel num_threads(thread_count)
+    {
+        #pragma omp parallel for reduction(max: max)
+        for (int r = 0; r < n; r++) {
+            if (max < array[r]) {
+                max = array[r];
+            }
         }
     }
 

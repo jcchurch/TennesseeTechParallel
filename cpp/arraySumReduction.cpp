@@ -28,9 +28,12 @@ int main(int argc, char* argv[]) {
     }
 
     int sum = 0;
-    #pragma omp parallel for reduction(+: sum)
-    for (int r = 0; r < n; r++) {
-        sum += array[r];
+    #pragma omp parallel num_threads(thread_count)
+    {
+        #pragma omp parallel for reduction(+: sum)
+        for (int r = 0; r < n; r++) {
+            sum += array[r];
+        }
     }
 
     cout << "Expected Result: " << (n * (n+1)) / 2 << endl;
