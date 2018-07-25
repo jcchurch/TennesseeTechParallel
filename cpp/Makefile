@@ -2,7 +2,7 @@ CC = gcc
 CPP = g++
 CFLAGS = -Wall -fopenmp
 RM = rm
-TARGET = hello confirm gameOfLife arraySum arrayMax arraySumReduction arrayMaxReduction hflip gray pipeline
+TARGET = hello confirm gameOfLife arraySum arrayMax arraySumReduction arrayMaxReduction hflip gray pipeline cachelines
 
 all: $(TARGET)
 
