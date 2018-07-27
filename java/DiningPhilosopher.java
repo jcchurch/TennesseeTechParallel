@@ -20,7 +20,7 @@ public class DiningPhilosopher {
         for (int i = 0; i < names.length; i++) {
             philosophers[i] = new Philosopher(names[i], forks[i], forks[(i+1)%n], butler);
             new Thread(philosophers[i]).start();
-        };
+        }
 
         try{ Thread.sleep(10000); } catch (Exception e) { }
 
